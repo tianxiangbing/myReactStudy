@@ -1,10 +1,13 @@
 var webpack = require('webpack');
-var commonsPlugin = new webpack.optimize.CommonsChunkPlugin('common.js');
+//var commonsPlugin = new webpack.optimize.CommonsChunkPlugin('common.js');
+//app:'./app/app.jsx'
 module.exports= {
-    entry:{
-        app:'./app/app.jsx'
+    entry:
+    {
+        app:['./app/app.jsx']
     },
     output:{
+        publicPath: "/assets/",
         path:'dist/js',
         filename:'[name].js'
     },
@@ -17,7 +20,7 @@ module.exports= {
             {
                 jsx:/\.jsx$/,
                 exclude: /(node_modules|bower_components)/,
-                loader:"babel",
+                loader:["babel"],
                 query: {
                     presets: ['es2015','react']
                 }
@@ -25,6 +28,6 @@ module.exports= {
         ]
     },
     plugins: [
-        commonsPlugin
+        //commonsPlugin
     ]
 }
