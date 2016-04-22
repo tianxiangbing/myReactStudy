@@ -1,4 +1,4 @@
-var webpack = require('webpack');
+var path = require("path");
 //var commonsPlugin = new webpack.optimize.CommonsChunkPlugin('common.js');
 //app:'./app/app.jsx'
 module.exports= {
@@ -7,8 +7,8 @@ module.exports= {
         app:['./app/app.jsx']
     },
     output:{
+        path: path.resolve(__dirname, "dist"),
         publicPath: "/assets/",
-        path:'dist/js',
         filename:'[name].js'
     },
     resolve: {
